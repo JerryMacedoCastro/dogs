@@ -1,42 +1,57 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Input from '../Forms/Input';
+import Button from '../Forms/Button';
+import useForm from '../../Hooks/useForm';
+
 const LoginForm = () => {
-  const [username, setUserame] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const username = useForm();
+  const password = useForm();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify({ username, password }),
-    })
-      .then((response) => {
-        return response.json();
+
+    if (username.validate() && password.validate()) {
+      fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(),
       })
-      .then((json) => {
-        return json;
-      });
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          console.log(json);
+          return json;
+        });
+    }
   };
 
   return (
     <section>
       <h1>Login</h1>
       <form action="" onSubmit={handleSubmit}>
-        <input
+        <Input
+          name="username"
+          label="Usuário"
           type="text"
-          value={username}
-          onChange={({ target }) => setUserame(target.value)}
+          {...username}
+          // value={username}
+          // onChange={({ target }) => setUserame(target.value)}
         />
-        <input
+
+        <Input
+          name="password"
+          label="Senha"
           type="password"
-          value={password}
-          onChange={({ target }) => setPassword(target.value)}
+          {...password}
+          // value={password}
+          // onChange={({ target }) => setPassword(target.value)}
         />
-        <button type="submit">Entrar</button>
+        <Button type="submit">Entrar</Button>
       </form>
       <Link to={`login/new`}>Registro</Link>
     </section>

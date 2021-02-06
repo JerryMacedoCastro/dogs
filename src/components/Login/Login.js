@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
 
+import styles from './Login.module.css';
 import LoginCreate from './LoginCreate';
 import LoginForm from './LoginForm';
 import LoginPasswordLost from './LoginPasswordLost';
@@ -12,14 +13,16 @@ const Login = () => {
 
   if (login === true) return <Navigate to="/account" />;
   return (
-    <div>
-      <Routes>
-        <Route exact element={<LoginForm />} path="/" />
-        <Route path="/new`" element={<LoginCreate />} />
-        <Route path="/passwordLost" element={<LoginPasswordLost />} />
-        <Route path="/passwordReset" element={<LoginPasswordReset />} />
-      </Routes>
-    </div>
+    <section className={styles.login}>
+      <div className={styles.forms}>
+        <Routes>
+          <Route exact element={<LoginForm />} path="/" />
+          <Route path="/new" element={<LoginCreate />} />
+          <Route path="/passwordLost" element={<LoginPasswordLost />} />
+          <Route path="/passwordReset" element={<LoginPasswordReset />} />
+        </Routes>
+      </div>
+    </section>
   );
 };
 

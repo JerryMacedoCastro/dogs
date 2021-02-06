@@ -4,29 +4,18 @@ import { Link } from 'react-router-dom';
 import Input from '../Forms/Input';
 import Button from '../Forms/Button';
 import useForm from '../../Hooks/useForm';
+import { UserContext } from '../../UserContext';
 
 const LoginForm = () => {
   const username = useForm();
   const password = useForm();
+  const { userLogin, error, loading } = React.useContext(UserContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (username.validate() && password.validate()) {
-      fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify(),
-      })
-        .then((response) => {
-          return response.json();
-        })
-        .then((json) => {
-          console.log(json);
-          return json;
-        });
+      userLogin(username.value, password.value);
     }
   };
 
@@ -34,24 +23,15 @@ const LoginForm = () => {
     <section>
       <h1>Login</h1>
       <form action="" onSubmit={handleSubmit}>
-        <Input
-          name="username"
-          label="Usuário"
-          type="text"
-          {...username}
-          // value={username}
-          // onChange={({ target }) => setUserame(target.value)}
-        />
+        <Input name="username" label="Usuário" type="text" {...username} />
 
-        <Input
-          name="password"
-          label="Senha"
-          type="password"
-          {...password}
-          // value={password}
-          // onChange={({ target }) => setPassword(target.value)}
-        />
-        <Button type="submit">Entrar</Button>
+        <Input name="password" label="Senha" type="password" {...password} />
+        {loading ? (
+          <Button disabled>Carregando..</Button>
+        ) : (
+          <Button type="submit">Entrar</Button>
+        )}
+        {error && <p>{error}</p>}
       </form>
       <Link to={`login/new`}>Registro</Link>
     </section>

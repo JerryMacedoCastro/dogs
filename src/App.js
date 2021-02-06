@@ -1,17 +1,27 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Account from './components/Account';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Routes from './Routes';
+import Home from './components/Home';
+import Login from './components/Login/Login';
+
+import { UserStorage } from './UserContext';
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <Routes />
-        <Footer />
+        <UserStorage>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login/*" element={<Login />} />
+            <Route path="/account" element={<Account />} />
+          </Routes>
+          <Footer />
+        </UserStorage>
       </BrowserRouter>
     </>
   );

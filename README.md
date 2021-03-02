@@ -5,7 +5,7 @@
 ## Funcionamento
 A aplicação permite que o usuario crie uma conta, poste fotos e comentrários em postagens. exist
 
-<img src="./dogs1.jpg" alt="d1" width="200"/> <img src="./dogs2.jpg" alt="d2" width="200"/> <img src="./dogs3.jpg" alt="d3" width="200"/>
+<img src="./dogs1.jpg" alt="d1" width="200"/> <img src="./dogs2.jpg" alt="d2" width="300"/> <img src="./dogs3.jpg" alt="d3" width="300"/>
 
 
 ## Tecnologias utilizadas

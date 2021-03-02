@@ -8,7 +8,7 @@ Após clonar o repositório instale as dependências
 
 ```bash
 yarn 
-## ou 
+# ou 
 npm install
 ```
 
@@ -16,6 +16,6 @@ Para rodar o projeto
 
 ```bash
 yarn start
-## ou 
+# ou 
 npm start
 ```

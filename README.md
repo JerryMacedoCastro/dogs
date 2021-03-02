@@ -1,4 +1,5 @@
-# dogs - Rede social para cachorros criada a partir do curso de React Completo da Origamid  
+# dogs 
+## Rede social para cachorros criada a partir do curso de React Completo da Origamid  
 **_Jerry Macedo Castro_** | jerry.castro96@outlook.com
 
 ## Iniciando o desenvolvimento

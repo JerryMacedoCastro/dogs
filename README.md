@@ -5,6 +5,10 @@
 ## Funcionamento
 A aplicação permite que o usuario crie uma conta, poste fotos e comentrários em postagens. exist
 
+<img src="./dogs1.jpeg" alt="drawing" width="200"/>
+<img src="./dogs2.jpeg" alt="drawing" width="200"/>
+<img src="./dog32.jpeg" alt="drawing" width="200"/>
+
 
 ## Tecnologias utilizadas
 - React

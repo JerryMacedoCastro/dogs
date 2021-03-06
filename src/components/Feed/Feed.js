@@ -42,7 +42,7 @@ const Feed = ({ user }) => {
             key={page}
             user={user}
             page={page}
-            total={3}
+            total={6}
             setModalPhoto={setModalPhoto}
             setInfinite={setInfinite}
           />
